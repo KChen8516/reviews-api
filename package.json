@@ -1,0 +1,24 @@
+{
+  "name": "reviews-api",
+  "version": "1.0.0",
+  "description": "Node.js and Express.js app with MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KChen8516/reviews-api.git"
+  },
+  "author": "Kai Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KChen8516/reviews-api/issues"
+  },
+  "homepage": "https://github.com/KChen8516/reviews-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.14"
+  }
+}

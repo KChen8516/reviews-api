@@ -8,6 +8,7 @@ const ReviewSchema = new Schema({
         required: true
     },
     pros: [{
+        _id : false,
         id: {
             type: Number,
             required: true
@@ -18,6 +19,7 @@ const ReviewSchema = new Schema({
         }
     }],
     cons: [{
+        _id : false,
         id: {
             type: Number,
             required: true
@@ -28,6 +30,7 @@ const ReviewSchema = new Schema({
         }
     }],
     other: [{
+        _id : false,
         id: {
             type: Number,
             required: true

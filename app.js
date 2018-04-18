@@ -1,8 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const keys = require('./config/keys');
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200
+}
 
 // Load models
 require('./models/Review');
@@ -23,6 +28,9 @@ mongoose.connect(keys.mongoURI)
 // Body parser middleware
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+// CORS configuration
+app.use(cors(corsOptions));
 
 // Index Route
 app.get('/', (req, res) => {

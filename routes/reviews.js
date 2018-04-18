@@ -21,9 +21,9 @@ router.post('/', (req, res) => {
     
     const newReview = {
         movieTitle: req.body.movieTitle,
-        pros: req.body.pros || [],
-        cons: req.body.cons || [],
-        other: req.body.other || []
+        pros: req.body.pros,
+        cons: req.body.cons,
+        other: req.body.other
     }
 
     new Review(newReview).save().then(() => console.log('Saved Review'));

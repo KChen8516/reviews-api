@@ -5,11 +5,18 @@ const mongoose = require('mongoose');
 const Review = mongoose.model('reviews');
 const router = express.Router();
 
+// Fetch all Reviews
 router.get('/', (req, res) => {
     Review.find({})
         .then(reviews => {
-            res.send({data: reviews})
+            res.send(reviews)
         });
+});
+
+// Fetch single Review
+router.get('/:id', (req, res) => {
+    Review.findOne({_id: req.params.id})
+        .then(review => {res.send(review)});
 });
 
 // Process add Review

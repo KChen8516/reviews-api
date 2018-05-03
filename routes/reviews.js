@@ -19,6 +19,12 @@ router.get('/:id', (req, res) => {
         .then(review => {res.send(review)});
 });
 
+// Fetch edit Review
+router.get('/edit/:id', (req, res) => {
+    Review.findOne({_id: req.params.id})
+        .then(review => {res.send(review)});
+});
+
 // Process add Review
 router.post('/', (req, res) => {
     let errors = [];
@@ -37,5 +43,20 @@ router.post('/', (req, res) => {
     
     res.send('Saved Review.');
 });
+
+router.put('/edit/:id', (req, res) => {
+    Review.findOne({_id: req.params.id})
+        .then(review => {
+
+            review.movieTitle = req.body.movieTitle;
+            review.pros = req.body.pros;
+            review.cons = req.body.cons;
+            review.other = req.body.other;
+            
+            review.save().then(review => console.log('Updated review'));
+
+            res.send('Updated Review.');
+        });
+})
 
 module.exports = router;

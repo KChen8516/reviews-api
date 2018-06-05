@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const keys = require('./config/keys');
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://sceneit.azurewebsites.net'],
+    origin: ['http://localhost:3000', 'http://sceneit.azurewebsites.net', 'https://sceneit.azurewebsites.net'],
     methods: 'GET,HEAD,PUT,POST,DELETE',
     optionsSuccessStatus: 200,
     credentials: true

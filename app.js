@@ -8,7 +8,8 @@ const cors = require('cors');
 
 const keys = require('./config/keys');
 const corsOptions = {
-    origin: ['http://localhost:3000', 'http://sceneit.azurewebsites.net'],
+    origin: ['http://localhost:3000', 'https://sceneit.azurewebsites.net'],
+    methods: 'GET,HEAD,PUT,POST,DELETE',
     optionsSuccessStatus: 200,
     credentials: true
 }
@@ -32,7 +33,7 @@ mongoose.Promise = global.Promise;
 
 // Connect to mongoose
 mongoose.connect(keys.mongoURI)
-    .then(() => console.log('MongoDB connected to', keys.mongoURI))
+    .then(() => console.log('MongoDB connected.'))
     .catch(err => console.log(err));
 
 // Body parser middleware

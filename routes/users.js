@@ -10,8 +10,15 @@ router.post('/login', (req, res) => {
     User.findOne({ email: req.body.email })
         .then(user => {
             if(user) {
-                return res.status(200).json(user);
-                // return res.status(400).json({email: 'Email already exists.'});
+                // Check if the user changed their Google profile imaage
+                if(user.image !== req.body.image) {
+                    user.image = req.body.image;
+                    user.save().then(user => 
+                        {return res.status(200).json(user)}
+                    )
+                } else {
+                    return res.status(200).json(user);
+                }
             } else {
                 const newUser = {
                     googleID: req.body.googleID,
@@ -24,11 +31,7 @@ router.post('/login', (req, res) => {
 
                 new User(newUser)
                     .save()
-                    .then(
-                        user => {
-                            res.status(200).json(user);
-                        }
-                    )
+                    .then(user => res.status(200).json(user))
                     .catch(error => res.status(400).send('Failed to save new User.'))
             }
         })

@@ -40,7 +40,9 @@ router.get('/edit/:id', (req, res) => {
         .then(review => {res.send(review)});
 });
 
-// Process add Review
+// @route  POST /reviews
+// @desc   Create a review by user
+// @access Private
 router.post('/', (req, res) => {
     const { errors, isValid } = validateReviewInput(req.body);
 
@@ -58,9 +60,7 @@ router.post('/', (req, res) => {
     }
 
     new Review(newReview).save()
-        .then(() => {
-            res.send('Saved Review');
-        });
+        .then(review => res.send(review));
 });
 
 router.put('/edit/:id', (req, res) => {

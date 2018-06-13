@@ -7,7 +7,7 @@ module.exports = function validateReviewInput (data) {
     data.movieTitle = !isEmpty(data.movieTitle) ? data.movieTitle : '';
 
     if(!Validator.isLength(data.movieTitle, {min: 3, max: 30})) {
-        errors.movieTitle = 'Movie Title must be between 3 and 30 characters';
+        errors.movieTitle = '\'Movie Title\' must be between 3 and 30 characters';
     }
 
     return {

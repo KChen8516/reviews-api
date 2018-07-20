@@ -55,6 +55,9 @@ router.post('/', (req, res) => {
   const newReview = {
     user: req.body._id,
     movieTitle: req.body.movieTitle,
+    tmdbId: req.body.tmdbId,
+    posterURL: req.body.posterPath,
+    backdropURL: req.body.backdropPath,
     score: req.body.score,
     pros: req.body.pros,
     cons: req.body.cons,

@@ -18,6 +18,16 @@ const ReviewSchema = new Schema({
     type: String,
     required: true
   },
+  tmdbId: {
+    type: Number,
+    required: true
+  },
+  posterURL: {
+    type: String
+  },
+  backdropURL: {
+    type: String
+  },
   pros: [
     {
       _id: false,
